@@ -5,11 +5,15 @@ const requestHandler = (req, res) => {
     const method = req.method;
 
     if (url === '/') {
-        res.write('<html><head><title>Enter Message</title></head><body><form action="/message" method="POST"><input type="text" name="message" /><button type="submit">Send</button></form></body></html>');
+        res.write('<html><head><title>Enter Message</title></head><body><h1>Hello there!</h1><br/><form method="POST" action="/create-user"><input type="text" name="username"/><button type="submit">Add user</button></form></body></html>');
         return res.end();
     }
 
-    if (url === '/message' && method === 'POST') {
+    if (url === '/users' && method === 'GET') {
+        res.write('<html><head><title>Users</title></head><body><ul><li>Jasmine</li><li>Joy</li></ul></body></html>');
+    }
+
+    if (url === '/create-user' && method === 'POST') {
         const body = [];
         req.on('data', (chunk) => {
             body.push(chunk);
@@ -17,11 +21,7 @@ const requestHandler = (req, res) => {
         return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
             const message = parsedBody.split('=')[1];
-            fs.writeFile('message.txt', message, err => {
-                res.statusCode = 302;
-                res.setHeader('Location', '/');
-                return res.end();
-            });
+            console.log('the message:', message);
         });
     }
 
