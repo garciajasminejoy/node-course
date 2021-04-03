@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/garciajasminejoy/node-course/issues"
   },
-  "homepage": "https://github.com/garciajasminejoy/node-course#readme"
+  "homepage": "https://github.com/garciajasminejoy/node-course#readme",
+  "nodemonConfig": {
+    "ignore": [
+      "data/products.json"
+    ]
+  }
 }

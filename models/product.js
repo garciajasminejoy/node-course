@@ -9,6 +9,7 @@ const p = path.join(
 
 const getProductsFromFile = cb => {
   fs.readFile(p, (err, fileContent) => {
+    console.log('p to read', p);
     if (err) {
       cb([]);
     } else {
@@ -25,8 +26,9 @@ module.exports = class Product {
   save() {
     getProductsFromFile(products => {
       products.push(this);
+
       fs.writeFile(p, JSON.stringify(products), err => {
-        console.log(err);
+        console.log('write file', err, typeof err);
       });
     });
   }
