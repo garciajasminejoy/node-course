@@ -1,1 +1,9 @@
-[{"title":"tests","imageUrl":"","description":"test","price":"13","id":"0.28478198702894386"}]
+[
+  {
+    "title": "tests",
+    "imageUrl": "",
+    "description": "test",
+    "price": "13",
+    "id": "0.28478198702894386"
+  }
+]
